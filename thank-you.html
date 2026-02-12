@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thank You! – GS Fantastic House Cleaning</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --branco-primaria: #f5f1f0;
+        --azul-escuro: #2a3150;
+        --azul-claro: #09a7b2;
+        --cinza-principal: #222222;
+        --fonte-titulo: "Playfair Display", serif;
+        --fonte-texto: "Montserrat Alternates", sans-serif;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: var(--branco-primaria);
+        font-family: var(--fonte-texto);
+        overflow-x: hidden;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* ====== HEADER ====== */
+      .ty_header {
+        width: 100%;
+        background-color: var(--azul-escuro);
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .ty_header img {
+        width: 50px;
+      }
+
+      /* ====== MAIN ====== */
+      .ty_main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 3rem 1.5rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Blob de fundo decorativo */
+      .ty_main::before {
+        content: '';
+        position: absolute;
+        top: -80px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 600px;
+        height: 600px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(9,167,178,0.08) 0%, transparent 65%);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      /* ====== CHECKMARK ANIMADO ====== */
+      .ty_check_wrapper {
+        position: relative;
+        z-index: 1;
+        width: 100px;
+        height: 100px;
+        margin-bottom: 2rem;
+      }
+
+      .ty_check_circle {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--azul-claro), #07c5d2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 8px 32px rgba(9, 167, 178, 0.35);
+        animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        opacity: 0;
+        animation-delay: 0.1s;
+      }
+
+      .ty_check_circle svg {
+        width: 48px;
+        height: 48px;
+      }
+
+      .ty_check_circle svg path {
+        stroke: #ffffff;
+        stroke-width: 3;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+        stroke-dasharray: 60;
+        stroke-dashoffset: 60;
+        animation: drawCheck 0.5s ease forwards;
+        animation-delay: 0.6s;
+      }
+
+      /* Ripple ao redor do círculo */
+      .ty_check_ripple {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 3px solid var(--azul-claro);
+        opacity: 0;
+        animation: ripple 1.2s ease-out forwards;
+        animation-delay: 0.7s;
+      }
+
+      @keyframes popIn {
+        from { opacity: 0; transform: scale(0.3); }
+        to   { opacity: 1; transform: scale(1); }
+      }
+
+      @keyframes drawCheck {
+        to { stroke-dashoffset: 0; }
+      }
+
+      @keyframes ripple {
+        0%   { opacity: 0.6; transform: scale(1); }
+        100% { opacity: 0;   transform: scale(1.8); }
+      }
+
+      /* ====== TEXTO ====== */
+      .ty_titulo {
+        position: relative;
+        z-index: 1;
+        font-family: var(--fonte-titulo);
+        font-size: 42px;
+        color: var(--azul-escuro);
+        line-height: 1.2;
+        margin-bottom: 1rem;
+        opacity: 0;
+        animation: slideUp 0.5s ease forwards;
+        animation-delay: 0.4s;
+      }
+
+      .ty_titulo span {
+        color: var(--azul-claro);
+      }
+
+      .ty_subtitulo {
+        position: relative;
+        z-index: 1;
+        font-family: var(--fonte-texto);
+        font-size: 17px;
+        color: var(--cinza-principal);
+        font-weight: 300;
+        line-height: 1.7;
+        max-width: 480px;
+        margin-bottom: 2.5rem;
+        opacity: 0;
+        animation: slideUp 0.5s ease forwards;
+        animation-delay: 0.55s;
+      }
+
+      @keyframes slideUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+
+      /* ====== CARDS DE INFO ====== */
+      .ty_cards {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2.5rem;
+        opacity: 0;
+        animation: slideUp 0.5s ease forwards;
+        animation-delay: 0.7s;
+      }
+
+      .ty_card {
+        background: #ffffff;
+        border: 1px solid rgba(9, 167, 178, 0.2);
+        border-radius: 16px;
+        padding: 1.2rem 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.4rem;
+        min-width: 130px;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+      }
+
+      .ty_card_icon {
+        font-size: 28px;
+        line-height: 1;
+      }
+
+      .ty_card_text {
+        font-family: var(--fonte-texto);
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--azul-escuro);
+        text-align: center;
+        line-height: 1.4;
+      }
+
+      /* ====== BOTÃO VOLTAR ====== */
+      .btn_home {
+        position: relative;
+        z-index: 1;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.7rem;
+        padding: 1rem 2.5rem;
+        background-color: var(--azul-claro);
+        color: #ffffff;
+        font-family: var(--fonte-texto);
+        font-size: 16px;
+        font-weight: 700;
+        text-decoration: none;
+        border-radius: 50px;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        letter-spacing: 0.02em;
+        opacity: 0;
+        animation: slideUp 0.5s ease forwards, pulse 2.5s 1.5s infinite ease-in-out;
+        animation-delay: 0.85s;
+        box-shadow: 0 6px 24px rgba(9, 167, 178, 0.3);
+      }
+
+      .btn_home:hover {
+        background-color: #078a94;
+        transform: translateY(-3px);
+        animation: none;
+        box-shadow: 0 8px 28px rgba(9, 167, 178, 0.4);
+      }
+
+      .btn_home_arrow {
+        font-size: 20px;
+        line-height: 1;
+        transition: transform 0.2s ease;
+      }
+
+      .btn_home:hover .btn_home_arrow {
+        transform: translateX(-3px);
+      }
+
+      @keyframes pulse {
+        0%   { transform: scale(1); }
+        50%  { transform: scale(1.04); }
+        100% { transform: scale(1); }
+      }
+
+      /* ====== FOOTER ====== */
+      .ty_footer {
+        text-align: center;
+        padding: 1.2rem;
+        font-family: var(--fonte-texto);
+        font-size: 12px;
+        font-weight: 400;
+        color: #aab0be;
+        flex-shrink: 0;
+      }
+
+      /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+      /* !!!!!!!!          MOBILE                       !!!!!!!!!!! */
+      /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+      @media screen and (max-width: 600px) {
+
+        .ty_header {
+          height: 50px;
+        }
+
+        .ty_header img {
+          width: 36px;
+        }
+
+        .ty_main {
+          padding: 2.5rem 1.2rem;
+        }
+
+        .ty_check_wrapper {
+          width: 80px;
+          height: 80px;
+          margin-bottom: 1.5rem;
+        }
+
+        .ty_check_circle {
+          width: 80px;
+          height: 80px;
+        }
+
+        .ty_check_circle svg {
+          width: 38px;
+          height: 38px;
+        }
+
+        .ty_check_ripple {
+          width: 80px;
+          height: 80px;
+        }
+
+        .ty_titulo {
+          font-size: 28px;
+        }
+
+        .ty_subtitulo {
+          font-size: 14px;
+          margin-bottom: 2rem;
+        }
+
+        .ty_cards {
+          flex-direction: column;
+          gap: 0.8rem;
+          width: 100%;
+          max-width: 280px;
+        }
+
+        .ty_card {
+          flex-direction: row;
+          justify-content: flex-start;
+          min-width: unset;
+          width: 100%;
+          gap: 0.8rem;
+          padding: 1rem 1.2rem;
+        }
+
+        .ty_card_icon {
+          font-size: 24px;
+        }
+
+        .ty_card_text {
+          text-align: left;
+        }
+
+        .btn_home {
+          font-size: 15px;
+          padding: 0.9rem 2rem;
+          margin-top: 0.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- HEADER -->
+    <header class="ty_header">
+      <a href="./index.html">
+        <img src="./assets/icon_logo_azul_claro.png" alt="GS Fantastic House Cleaning" />
+      </a>
+    </header>
+
+    <!-- MAIN -->
+    <main class="ty_main">
+
+      <!-- Checkmark animado -->
+      <div class="ty_check_wrapper">
+        <div class="ty_check_circle">
+          <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 24 L20 34 L38 14" />
+          </svg>
+        </div>
+        <div class="ty_check_ripple"></div>
+      </div>
+
+      <!-- Texto principal -->
+      <h1 class="ty_titulo">Thank <span>You!</span></h1>
+      <p class="ty_subtitulo">
+        Your request has been received. We'll review your information and get back to you as soon as possible with a personalized quote.
+      </p>
+
+      <!-- Cards de próximos passos -->
+      <div class="ty_cards">
+        <div class="ty_card">
+          <span class="ty_card_icon">📩</span>
+          <span class="ty_card_text">Check your email for confirmation</span>
+        </div>
+        <div class="ty_card">
+          <span class="ty_card_icon">📞</span>
+          <span class="ty_card_text">We'll call you within 24h</span>
+        </div>
+        <div class="ty_card">
+          <span class="ty_card_icon">🌿</span>
+          <span class="ty_card_text">Non-toxic products, always</span>
+        </div>
+      </div>
+
+      <!-- Botão voltar -->
+      <a href="./index.html" class="btn_home">
+        <span class="btn_home_arrow">←</span>
+        Back to Home
+      </a>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="ty_footer">
+      © GS Fantastic House Cleaning · San Francisco & Peninsula
+    </footer>
+
+  </body>
+</html>

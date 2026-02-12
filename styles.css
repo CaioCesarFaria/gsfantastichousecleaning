@@ -1,0 +1,805 @@
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+/* ?????????????????? DESENVOLVIDO POR CAIO CÉSAR FARIA   ????????????????? */
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+:root {
+  --branco-primaria: #f5f1f0;
+  --azul-escuro: #2a3150;
+  --azul-claro: #09a7b2;
+  --preto-principal: #000000;
+  --cinza-principal: #222222;
+  --fonte-titulo: "Playfair Display", serif;
+  --fonte-texto: "Montserrat Alternates", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* ✅ FIX PRINCIPAL - evita overflow por padding/border */
+}
+
+body {
+  overflow-x: hidden;  /* ✅ Previne scroll horizontal */
+  max-width: 100vw;    /* ✅ Garante limite */
+}
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+/* !!!!!!!     VERSÃO DESKTOP                                   !!!!!!!!!! */
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+.container_inicio {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.inicio_menu {
+  display: flex;
+  width: 100%;
+  height: 70px;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--azul-escuro);
+}
+.menu_icone {
+  width: 50px;
+}
+.banner_inicio {
+  width: 100%;
+  display: flex;
+}
+.inicio_texto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--branco-primaria);
+}
+.inicio_titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 36px;
+  color: var(--azul-escuro);
+  margin-top: 20px;
+  padding: 0 4rem;
+  text-align: left;
+  color: var(--cinza-principal);
+}
+.inicio_titulo span {
+  color: var(--azul-claro);
+}
+.inicio_subtitulo {
+  font-family: var(--fonte-texto);
+  font-size: 24px;
+  color: var(--azul-escuro);
+  margin-top: 20px;
+  padding: 0 4rem;
+  text-align: left;
+  font-weight: 300;
+  color: var(--cinza-principal);
+}
+.btn_quote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: baseline;
+  column-gap: 1rem;
+  margin-top: 22px;
+  margin-bottom: 1rem;
+  margin-left: 4rem;
+  padding: 1rem 3rem;
+  background-color: var(--azul-claro);
+  color: var(--branco-primaria);
+  font-family: var(--fonte-texto);
+  font-size: 26px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  border-radius: 24px;
+  animation: pulse 2s infinite ease-in-out;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.quote_icon {
+  width: 40px;
+}
+.inicio_imagem {
+  width: 50%;
+}
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+/* !!!!!!!     CONTAINER SERVIÇOS - DESKTOP                   !!!!!!!!!! */
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+.container_servicos {
+  width: 100%;
+  max-width: 100vw;
+  padding: 4rem 2rem;
+  background-image: url(./assets/bg_servicos.png);
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+.servicos_conteudo {
+  width: 100%;
+  max-width: 100vw;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+}
+
+/* Card com efeito de vidro - À ESQUERDA */
+.card_servico {
+  flex: 0 0 auto;
+  width: 40%;
+  max-width: 550px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 30px;
+  padding: 2rem;
+  box-shadow:
+    0 8px 32px 0 rgba(31, 38, 135, 0.15),
+    0 20px 60px 0 rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  transition: all 0.4s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card_servico::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 30px;
+  padding: 2px;
+  background: linear-gradient(145deg, rgba(255,255,255,0.5), rgba(255,255,255,0.1));
+  -webkit-background-composite: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.card_servico:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 12px 40px 0 rgba(31, 38, 135, 0.2),
+    0 25px 70px 0 rgba(0, 0, 0, 0.15);
+}
+
+.card_foto {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+  transition: all 0.4s ease;
+}
+
+.card_icone {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 1rem auto;
+  display: block;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+  transition: all 0.4s ease;
+}
+
+.card_divisor {
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--azul-claro), transparent);
+  margin: 1.5rem 0;
+  opacity: 0.6;
+  width: 100%;
+}
+
+.card_descricao {
+  font-family: var(--fonte-texto);
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--cinza-principal);
+  text-align: center;
+  font-weight: 400;
+  width: 100%;
+}
+
+/* Conteúdo à direita */
+.servicos_direita {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.header_badge {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.badge_icon {
+  width: 150px;
+  height: auto;
+}
+
+.badge_text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  max-width: 100vw;
+}
+
+.badge_text h3 {
+  font-family: var(--fonte-texto);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--azul-escuro);
+}
+
+.badge_text .non_toxic {
+  color: #8bc34a;
+}
+
+.servicos_titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 38px;
+  color: var(--azul-escuro);
+  text-align: left;
+  line-height: 1.2;
+  margin-right: 5rem;
+}
+
+.servicos_subtitulo {
+  font-family: var(--fonte-texto);
+  font-size: 18px;
+  color: var(--cinza-principal);
+  text-align: left;
+  line-height: 1.6;
+  font-weight: 300;
+  margin-right: 5rem;
+}
+
+.servicos_subtitulo strong {
+  font-weight: 600;
+}
+
+/* Ícones de serviços */
+.servicos_icones {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  width: 90%;
+  margin-top: 1rem;
+}
+
+.icone_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1.5rem 1rem;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.icone_wrapper:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 8px 24px rgba(9, 167, 178, 0.2);
+}
+
+.icone_wrapper.active {
+  border-color: var(--azul-claro);
+  background: rgba(9, 167, 178, 0.1);
+  box-shadow: 0 8px 24px rgba(9, 167, 178, 0.3);
+}
+
+.icone_servico {
+  width: 70px;
+  height: 70px;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.icone_wrapper:hover .icone_servico {
+  transform: scale(1.1);
+}
+
+.icone_wrapper.active .icone_servico {
+  filter: drop-shadow(0 6px 12px rgba(9, 167, 178, 0.4));
+}
+
+.icone_titulo {
+  font-family: var(--fonte-texto);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--azul-escuro);
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* Animações de transição */
+.fade-in {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  
+}
+/* ?????????????????????????????????????????????????????????????? */
+  /* ??????????????? CONTAINER FREQUENCIA DESKTOP ????????????????? */
+  .frequencia_avatar{
+    width: 30vw;
+  }
+  .img_avatar{
+    width: 30vw;
+  }
+  .container_frequencia{
+    display: flex;
+    
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+  }
+  .frequencia_conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .frequencia_titulo{
+    font-family: var(--fonte-titulo);
+    font-size: 32px;
+    color: var(--azul-escuro);
+    margin-top: 20px;
+    padding: 0 6rem;
+    text-align: center;
+    color: var(--azul-escuro);
+    font-weight: bold;
+  }
+  .frequencia_titulo span {
+    color: var(--azul-claro);
+  }
+  .frequencia_subtitulo {
+    font-family: var(--fonte-texto);
+    font-size: 22px;
+    color: var(--preto-principal);
+    margin-top: 20px;
+    padding: 0 10rem;
+    text-align: center;
+    font-weight: 500;
+    
+  }
+  .frequencia_nontoxic{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .icone_nontoxic {
+    width: 70px;
+
+  }
+   .nontoxic_text {
+    font-family: var(--fonte-titulo);
+    font-size: 22px;
+    color: #235D0C;
+    font-weight: bolder;
+  }
+  .nontoxic_text span{
+    color: #8bc34a;
+    font-weight: bolder;
+  }
+  .frequencia_fotos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .foto_equipe {
+    width: 40%;
+  }
+
+  /* ?????????????????????????????????????????????????????????????? */
+  /* ??????????????? CONTAINER SEDE DESKTOP ????????????????? */
+  .container_sede{
+    display: flex;
+    align-items: flex-start;
+    justify-content:center;
+    margin-top: 2rem;
+    background-color: #09A7B2;
+  }
+  .sede_texto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:baseline;
+    text-align: center;
+    padding: 0 2rem;
+  }
+  .sede_titulo{
+    font-family: var(--fonte-titulo);
+    font-size: 32px;
+    color: var(--azul-escuro);
+    font-weight: 600;
+    padding-top: 8rem;
+    
+  }
+  .sede_subtitulo{
+    font-family: var(--fonte-texto);
+    font-size: 24px;
+    color: var(--preto-principal);
+    margin-top: 2rem;
+    padding: 0 5rem;
+    text-align: center;
+    font-weight: 500;
+  }
+  .sede_foto {
+    width: 30vw;
+  }
+  /* ?????????????????????????????????????????????????????????????? */
+  /* ??????????????? CONTAINER EXEMPLOS MOBILE ????????????????? */
+  .container_exemplos{
+    display: flex;
+    
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 2rem;
+  }
+  .exemplo_foto{
+    width: 20vw;
+    
+  }
+  
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+/* !!!!!!!     VERSÃO MOBILE                                   !!!!!!!!!! */
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+@media screen and (max-width: 490px) {
+  .container_inicio {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .inicio_menu {
+    display: flex;
+    width: 100%;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--azul-escuro);
+  }
+  .menu_icone {
+    width: 30px;
+  }
+  .banner_inicio {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .inicio_texto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--branco-primaria);
+  }
+  .inicio_titulo {
+    font-family: var(--fonte-titulo);
+    font-size: 28px;
+    color: var(--azul-escuro);
+    margin-top: 20px;
+    padding: 0 2rem;
+    text-align: center;
+    color: var(--cinza-principal);
+  }
+  .inicio_titulo span {
+    color: var(--azul-claro);
+  }
+  .inicio_subtitulo {
+    font-family: var(--fonte-texto);
+    font-size: 18px;
+    color: var(--azul-escuro);
+    margin-top: 20px;
+    padding: 0 2rem;
+    text-align: center;
+    color: var(--cinza-principal);
+  }
+  .btn_quote {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center; /* ✅ centraliza no mobile */
+    margin-left: 0;     /* ✅ remove margin-left do desktop */
+    column-gap: 1rem;
+    margin-top: 22px;
+    margin-bottom: 1rem;
+    padding: 10px 20px;
+    background-color: var(--azul-claro);
+    color: var(--branco-primaria);
+    font-family: var(--fonte-texto);
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    border-radius: 24px;
+  }
+  .quote_icon {
+    width: 20px;
+  }
+  .inicio_imagem {
+    width: 100%;
+  }
+
+  /* ✅ Container Serviços Mobile - OVERFLOW CORRIGIDO */
+  .container_servicos {
+    padding: 2rem 1rem;
+    background-size: 100vw;
+    overflow: hidden; /* ✅ CRUCIAL - bloqueia qualquer vazamento */
+    width: 100%;
+  }
+
+  .servicos_conteudo {
+    flex-direction: column-reverse;
+    gap: 2rem;
+    width: 100%; /* ✅ garante que não ultrapasse */
+  }
+
+  .card_servico {
+    flex: 1;
+    width: 90%;       /* ✅ ajustado de 80% para dar mais respiro */
+    max-width: 100%;
+    padding: 1.5rem;
+  }
+
+  .card_foto {
+    width: 100%; /* ✅ responsivo ao card, não à viewport */
+    height: auto;
+  }
+
+  .card_icone {
+    width: 50px;
+    height: 50px;
+  }
+
+  .card_descricao {
+    font-size: 14px;
+  }
+
+  /* ✅ DIREITA - corrigida para não vazar */
+  .servicos_direita {
+    align-items: center;
+    text-align: center;
+    width: 100%;    /* ✅ FIX - limita largura ao pai */
+    padding: 0 1rem; /* ✅ FIX - texto não cola nas bordas */
+  }
+
+  .header_badge {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  .badge_icon {
+    width: 60px;
+  }
+
+  .badge_text h3 {
+    font-size: 16px;
+  }
+
+  .servicos_titulo {
+    font-size: 28px;
+    text-align: center;
+    margin: 0;
+    width: 100%; /* ✅ FIX */
+  }
+
+  .servicos_subtitulo {
+    margin: 0;
+    font-size: 16px;
+    text-align: center;
+    width: 100%; /* ✅ FIX */
+  }
+
+  .servicos_icones {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    width: 100%; /* ✅ FIX - era 90% e vazava com padding */
+  }
+
+  .icone_wrapper {
+    padding: 1rem;
+  }
+
+  .icone_servico {
+    width: 60px;
+    height: 60px;
+  }
+
+  .icone_titulo {
+    font-size: 12px;
+  }
+
+  /* ?????????????????????????????????????????????????????????????? */
+  /* ??????????????? CONTAINER FREQUENCIA MOBILE ????????????????? */
+  .frequencia_avatar{
+    display: none;
+  }
+  .container_frequencia{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+  }
+  .frequencia_conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .frequencia_titulo{
+    font-family: var(--fonte-titulo);
+    font-size: 26px;
+    color: var(--azul-escuro);
+    margin-top: 20px;
+    padding: 0 2rem;
+    text-align: center;
+    color: var(--azul-escuro);
+    font-weight: bold;
+  }
+  .frequencia_titulo span {
+    color: var(--azul-claro);
+  }
+  .frequencia_subtitulo {
+    font-family: var(--fonte-texto);
+    font-size: 18px;
+    color: var(--preto-principal);
+    margin-top: 20px;
+    padding: 0 2rem;
+    text-align: center;
+    font-weight: 500;
+    
+  }
+  .frequencia_nontoxic{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .icone_nontoxic {
+    width: 50px;
+
+  }
+   .nontoxic_text {
+    font-family: var(--fonte-titulo);
+    font-size: 16px;
+    color: #235D0C;
+    font-weight: bolder;
+  }
+  .nontoxic_text span{
+    color: #8bc34a;
+  }
+  .frequencia_fotos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .foto_equipe {
+    width: 60%;
+  }
+
+
+  /* ?????????????????????????????????????????????????????????????? */
+  /* ??????????????? CONTAINER SEDE MOBILE ????????????????? */
+  .container_sede{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content:center;
+    margin-top: 2rem;
+    background-color: #09A7B2;
+    max-width: 100vw;
+  }
+  .sede_texto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:baseline;
+    text-align: center;
+    padding: 0 4rem;
+  }
+  .sede_titulo{
+    font-family: var(--fonte-titulo);
+    font-size: 16px;
+    color: var(--azul-escuro);
+    font-weight: 400;
+    padding-top: 1rem;
+    
+    
+  }
+  .sede_subtitulo{
+    font-family: var(--fonte-texto);
+    font-size: 14px;
+    color: var(--preto-principal);
+    margin-top: 1rem;
+    padding: 0 1rem;
+    text-align: center;
+    font-weight: 400;
+    margin-bottom:1rem ;
+  }
+  .sede_foto {
+    width: 50vw;
+    margin: 0 auto;
+    border-radius: 24px;
+  }
+
+  /* ?????????????????????????????????????????????????????????????? */
+  /* ??????????????? CONTAINER EXEMPLOS MOBILE ????????????????? */
+  .container_exemplos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  .exemplo_foto{
+    width: 70vw;
+    margin-bottom: 1rem;
+  }
+}
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+/* !!!!!!!     VERSÃO TABLET                                   !!!!!!!!!! */
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */

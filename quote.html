@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Request a Quote – GS Fantastic House Cleaning</title>
+    <link rel="stylesheet" href="./quote.css" />
+  </head>
+  <body>
+
+    <!-- ====== HEADER ====== -->
+    <header class="quote_header">
+      <a href="./index.html">
+        <img src="./assets/icon_logo_azul_claro.png" alt="GS Fantastic House Cleaning" class="header_logo" />
+      </a>
+    </header>
+
+    <!-- ====== HERO ====== -->
+    <div class="quote_hero">
+      <h1 class="hero_titulo">Get Your <span>Free Estimate</span></h1>
+      <p class="hero_subtitulo">Fill out the form below and we'll get back to you shortly with a personalized quote.</p>
+    </div>
+
+    <!-- ====== FORM ====== -->
+    <section class="quote_section">
+      <form
+        action="https://formsubmit.co/gloriam2@icloud.com"
+        method="POST"
+      >
+        <!-- Hidden FormSubmit configs -->
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_next" value="https://gsfantastichousecleaning.com/thank-you.html" />
+
+        <div class="form_grid">
+
+          <!-- ===== CONTACT INFO ===== -->
+          <div class="form_divider"><span>Contact Info</span></div>
+
+          <div class="form_field">
+            <label for="first_name">First Name</label>
+            <input type="text" id="first_name" name="First Name" placeholder="Jane" required />
+          </div>
+
+          <div class="form_field">
+            <label for="last_name">Last Name</label>
+            <input type="text" id="last_name" name="Last Name" placeholder="Doe" required />
+          </div>
+
+          <div class="form_field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="Email" placeholder="jane@email.com" required />
+          </div>
+
+          <div class="form_field">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="Phone" placeholder="(415) 000-0000" required />
+          </div>
+
+          <div class="form_field">
+            <label for="city">City</label>
+            <input type="text" id="city" name="City" placeholder="San Francisco" required />
+          </div>
+
+          <div class="form_field">
+            <label for="location">Address / Neighborhood</label>
+            <input type="text" id="location" name="Location" placeholder="Full address or neighborhood" required />
+          </div>
+
+          <!-- ===== SERVICE DETAILS ===== -->
+          <div class="form_divider"><span>Service Details</span></div>
+
+          <!-- Type of Service (visual list) -->
+          <div class="form_field">
+            <label>Type of Service</label>
+            <input type="hidden" name="Type of Cleaning" id="input_service" required />
+            <div class="option_list" id="list_service">
+              <div class="option_item selected" data-value="Deep Cleaning" data-target="input_service" data-list="list_service">
+                <span class="option_dot"></span> Deep Cleaning
+              </div>
+              <div class="option_item" data-value="Move In/Out Cleaning" data-target="input_service" data-list="list_service">
+                <span class="option_dot"></span> Move In/Out Cleaning
+              </div>
+              <div class="option_item" data-value="Standard Cleaning" data-target="input_service" data-list="list_service">
+                <span class="option_dot"></span> Standard Cleaning
+              </div>
+              <div class="option_item" data-value="Post Construction Cleaning" data-target="input_service" data-list="list_service">
+                <span class="option_dot"></span> Post Construction Cleaning
+              </div>
+              <div class="option_item" data-value="Other" data-target="input_service" data-list="list_service">
+                <span class="option_dot"></span> Other
+              </div>
+            </div>
+          </div>
+
+          <!-- Property Type (visual list) -->
+          <div class="form_field">
+            <label>Property Type</label>
+            <input type="hidden" name="Property Type" id="input_property" required />
+            <div class="option_list" id="list_property">
+              <div class="option_item selected" data-value="House" data-target="input_property" data-list="list_property">
+                <span class="option_dot"></span> House
+              </div>
+              <div class="option_item" data-value="Apartment" data-target="input_property" data-list="list_property">
+                <span class="option_dot"></span> Apartment
+              </div>
+              <div class="option_item" data-value="Mansion" data-target="input_property" data-list="list_property">
+                <span class="option_dot"></span> Mansion
+              </div>
+              <div class="option_item" data-value="Garage" data-target="input_property" data-list="list_property">
+                <span class="option_dot"></span> Garage
+              </div>
+              <div class="option_item" data-value="Building Common Area" data-target="input_property" data-list="list_property">
+                <span class="option_dot"></span> Building Common Area
+              </div>
+            </div>
+          </div>
+
+          <!-- Cleaning Frequency -->
+          <div class="form_field full">
+            <label>Cleaning Frequency</label>
+            <input type="hidden" name="Cleaning Frequency" id="input_frequency" value="One Time" />
+            <div class="frequency_grid">
+              <label class="freq_item selected">
+                <input type="radio" name="_freq" value="One Time" checked onchange="selectFreq(this)" /> One Time
+              </label>
+              <label class="freq_item">
+                <input type="radio" name="_freq" value="Weekly" onchange="selectFreq(this)" /> Weekly
+              </label>
+              <label class="freq_item">
+                <input type="radio" name="_freq" value="Bi-Weekly" onchange="selectFreq(this)" /> Bi-Weekly
+              </label>
+              <label class="freq_item">
+                <input type="radio" name="_freq" value="Monthly" onchange="selectFreq(this)" /> Monthly
+              </label>
+              <label class="freq_item">
+                <input type="radio" name="_freq" value="Not Sure" onchange="selectFreq(this)" /> Not Sure
+              </label>
+            </div>
+          </div>
+
+          <!-- ===== PROPERTY INFO ===== -->
+          <div class="form_divider"><span>Property Info</span></div>
+
+          <div class="form_field">
+            <label for="sqft">Total Square Footage</label>
+            <input type="text" id="sqft" name="Total Square Footage" placeholder="e.g. 1200 sq ft" required />
+          </div>
+
+          <div class="form_field">
+            <label for="bedrooms">N° of Bedrooms</label>
+            <input type="text" id="bedrooms" name="Bedrooms" placeholder="e.g. 3" required />
+          </div>
+
+          <div class="form_field">
+            <label for="full_baths">N° of Full Bathrooms</label>
+            <input type="text" id="full_baths" name="Full Bathrooms" placeholder="e.g. 2" required />
+          </div>
+
+          <div class="form_field">
+            <label for="half_baths">N° of Half Baths</label>
+            <input type="text" id="half_baths" name="Half Baths" placeholder="e.g. 1" required />
+          </div>
+
+          <!-- ===== EXTRAS ===== -->
+          <div class="form_divider"><span>A Little More Info</span></div>
+
+          <!-- Cleaned Before -->
+          <div class="form_field">
+            <label for="cleaned_before">Professional cleaning before?</label>
+            <div class="select_wrapper">
+              <select id="cleaned_before" name="Cleaned Before?" onchange="toggleConditional(this.value, 'Yes', 'field_last_cleaning')">
+                <option value="">Choose an option</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Last Cleaning (conditional) -->
+          <div class="form_field conditional_field" id="field_last_cleaning">
+            <label for="last_cleaning">When was the last cleaning?</label>
+            <input type="text" id="last_cleaning" name="Last Cleaning Date" placeholder="e.g. 3 months ago" />
+          </div>
+
+          <!-- Pets -->
+          <div class="form_field">
+            <label for="pets">Do you have pets?</label>
+            <div class="select_wrapper">
+              <select id="pets" name="Do you have pets?" onchange="toggleConditional(this.value, 'Yes', 'field_pets_amount')">
+                <option value="">Choose an option</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Pets amount (conditional) -->
+          <div class="form_field conditional_field" id="field_pets_amount">
+            <label for="pets_amount">How many pets?</label>
+            <input type="number" id="pets_amount" name="Number of Pets" placeholder="e.g. 2" min="0" />
+          </div>
+
+          <!-- Free Consultation -->
+          <div class="form_field full">
+            <label for="consultation">Free no-obligation consultation?</label>
+            <div class="select_wrapper">
+              <select id="consultation" name="Request Free Consultation?" required>
+                <option value="">Choose an option</option>
+                <option value="Yes">Yes, I'd like that!</option>
+                <option value="No">No, thanks</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Message -->
+          <div class="form_field full">
+            <label for="message">Leave us a message (optional)</label>
+            <textarea id="message" name="Message" placeholder="Any additional details about your home or special requests..."></textarea>
+          </div>
+
+          <!-- ===== SUBMIT ===== -->
+          <button type="submit" class="btn_submit">
+            <img src="./assets/icon_logo_azul_escuro.png" alt="" class="btn_submit_icon" />
+            Send My Request
+          </button>
+
+          <!-- Trust row -->
+          <div class="trust_row">
+            <div class="trust_item"><span class="trust_icon">🔒</span> Secure & Private</div>
+            <div class="trust_item"><span class="trust_icon">✅</span> No commitment required</div>
+            <div class="trust_item"><span class="trust_icon">🌿</span> Non-toxic products</div>
+            <div class="trust_item"><span class="trust_icon">⭐</span> 15+ years of experience</div>
+          </div>
+
+        </div>
+      </form>
+    </section>
+
+    <script>
+      // ---- Option list selection ----
+      document.querySelectorAll('.option_item').forEach(item => {
+        item.addEventListener('click', () => {
+          const listId = item.getAttribute('data-list');
+          const targetId = item.getAttribute('data-target');
+          const value = item.getAttribute('data-value');
+
+          // Remove selected from siblings
+          document.querySelectorAll(`#${listId} .option_item`).forEach(i => i.classList.remove('selected'));
+          item.classList.add('selected');
+
+          // Set hidden input value
+          document.getElementById(targetId).value = value;
+        });
+      });
+
+      // Init hidden inputs with default selected values
+      document.querySelectorAll('.option_list').forEach(list => {
+        const selected = list.querySelector('.option_item.selected');
+        if (selected) {
+          const targetId = selected.getAttribute('data-target');
+          document.getElementById(targetId).value = selected.getAttribute('data-value');
+        }
+      });
+
+      // ---- Frequency radio ----
+      function selectFreq(radio) {
+        document.getElementById('input_frequency').value = radio.value;
+        document.querySelectorAll('.freq_item').forEach(el => el.classList.remove('selected'));
+        radio.closest('.freq_item').classList.add('selected');
+      }
+
+      // ---- Conditional fields ----
+      function toggleConditional(value, trigger, fieldId) {
+        const field = document.getElementById(fieldId);
+        if (value === trigger) {
+          field.classList.add('visible');
+        } else {
+          field.classList.remove('visible');
+        }
+      }
+    </script>
+
+  </body>
+</html>
